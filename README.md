@@ -65,16 +65,26 @@ get_inventory_value → To calculate total inventory worth
 
 Example: 
 DELIMITER //
+
 CREATE PROCEDURE add_product(
+
     IN p_name VARCHAR(100),
+    
     IN p_category VARCHAR(50),
+    
     IN p_quantity INT,
+    
     IN p_price DECIMAL(10,2)
+    
 )
 BEGIN
+
     INSERT INTO products (product_name, category, quantity, price)
+    
     VALUES (p_name, p_category, p_quantity, p_price);
+    
 END //
+
 DELIMITER ;
 
 
@@ -83,10 +93,15 @@ Tested the Procedures
 
 
 Executed using CALL commands:
+
 CALL add_product('Laptop', 'Electronics', 10, 75000.00);
+
 CALL update_stock(1, 12);
+
 CALL get_product(1);
+
 CALL get_inventory_value(@value);
+
 SELECT @value AS 'Total Inventory Value';
 
 
@@ -94,7 +109,7 @@ SELECT @value AS 'Total Inventory Value';
 Verified successful output using the MySQL Workbench result grid.
 
 
-"C:\Users\DELL\Pictures\Screenshots\integrated result.png"
+<img width="1359" height="723" alt="integrated result" src="https://github.com/user-attachments/assets/5c7204a2-2ce5-41d0-8fc7-ab9809b05cca" />
 
 
 # Why I Did It
